@@ -1,17 +1,18 @@
 @import '@/style/theme.scss';
 
-.calculator-card{
+.calculator-card {
   .calculator-card-btn {
     color: var(--wjh-color-primary);
     font-size: 1.25rem;
     font-weight: var(--wjh-font-weight-bold);
     display: flex;
-    gap : 8Px;
+    gap: 8Px;
     align-items: center;
     justify-content: center;
     align-self: center;
   }
 }
+
 .score-card {
   .wjh-card-header {
     justify-content: space-between;
@@ -69,6 +70,23 @@
     color: var(--wjh-color-white);
   }
 
+}
+
+.switch-btn{
+  align-items: center;
+  justify-content: center;
+  background-color: var(--wjh-color-background-container);
+  border-bottom: 1Px solid var(--wjh-color-border);
+  font-size: 2.5rem;
+  color: var(--wjh-color-primary);
+}
+
+.lesson-group-btn{
+  align-items: center;
+  justify-content: center;
+  padding:12px;
+  font-size: 0.875rem;
+  margin-left: 23px;
 }
 
 .score-list-collapse {

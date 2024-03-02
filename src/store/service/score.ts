@@ -7,7 +7,8 @@ export const ScoreServiceStore = {
   state: {
     readScoreMarks: [], // 所有已读成绩的标记
     findNewScoresTime: undefined,
-    scorePeriod: "期末" //记录当前成绩页面选中的期中/期末
+    scorePeriod: "期末", //记录当前成绩页面选中的期中/期末
+    unCalScore: [] // 选中的计算成绩
   },
 
   mutations: {
@@ -27,6 +28,36 @@ export const ScoreServiceStore = {
         scorePoint: value.scorePoint,
         val: true
       });
+    },
+
+    /**
+     * 选中成绩
+     * @param state
+     * @param value 成绩
+     */
+    setUnCalc(
+      state: ScoreServiceStoreType,
+      value: Score
+    ) {
+      state.unCalScore.push({
+        name: value.lessonID,
+        scorePoint: value.scorePoint
+      });
+    },
+
+    /**
+     * 取消选中成绩
+     * @param state
+     * @param value 成绩
+     */
+    delUnCalc(
+      state: ScoreServiceStoreType,
+      value: Score
+    ) {
+      const toDelete = state.unCalScore.findIndex(
+        item => item.name === value.lessonID
+      );
+      toDelete !== -1 && state.unCalScore.splice(toDelete, 1);
     },
 
     /**

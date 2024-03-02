@@ -11,6 +11,7 @@ export default {
     "pages/about/index",
     "pages/exam/index",
     "pages/score/index",
+    "pages/score/scoreCalculator/index",
     "pages/setting/index",
     "pages/connect/index",
     "pages/connect/faq/index",

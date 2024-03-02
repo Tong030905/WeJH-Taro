@@ -3,6 +3,14 @@
     <title-bar title="成绩查询" back-button />
     <scroll-view :scrollY="true">
       <view class="flex-column">
+        <card class="calculator-card">
+          <view class="calculator-card-btn" @tap="handleClick()">
+            <w-button shape="circle" size="small">
+              <view class="iconfont icon-calculator" @tap="handleSort"></view>
+            </w-button>
+            <view>绩点计算器</view>
+          </view>
+        </card>
         <card v-if="!scoreList || scoreList.length === 0" style="text-align: center">
           <view>无当前阶段成绩信息</view>
         </card>
@@ -80,6 +88,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
+import Taro from "@tarojs/taro";
 import {
   Card,
   BottomPanel,
@@ -183,5 +192,11 @@ const relativeTermInfo = computed(() => {
   }
   return `大${char}${selectTerm.value?.term}学期`;
 });
+
+const handleClick = () => {
+  Taro.navigateTo({
+    url: "/pages/score/scoreCalculator/index?term=" + selectTerm.value.term + "&year=" + selectTerm.value.year + "&period=" + selectTerm.value.period
+  });
+};
 
 </script>
